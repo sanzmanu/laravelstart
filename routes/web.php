@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/products','ProductController');
+Route::get('/products/buscar/{$nombre}', 'ProductController@findByName');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

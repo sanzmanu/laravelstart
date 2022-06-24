@@ -18,6 +18,12 @@ class ProductController extends Controller
         return view('products.index',compact('products'));
     }
 
+    public function findByName($name)
+    {
+        $product = Product::where('name','=',$name)->get();
+        return response()->json($product);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
